@@ -1,173 +1,270 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Paperbloom 🪷</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Paperbloom creates elegant motivational notebooks with unique cover designs that inspire your daily journey.">
-  <link rel="stylesheet" href="styles.css">
 
-<style>
+  <!-- SEO & Social preview -->
+  <meta property="og:title" content="Paperbloom 🪷 – Creative & Inspiring Notebooks">
+  <meta property="og:description" content="Turning blank pages into art, opportunities into growth, yourself into a superstar.">
+  <meta property="og:image" content="images/preview.jpg">
+  <meta property="og:type" content="website">
+
+  <style>
   :root {
-  --bg: #fffdf8;
-  --text: #2e2e2e;
-  --accent: #e08e79;
-  --light: #faf3eb;
-  --max-width: 1100px;
-}
+    --bg: #fffdf8;
+    --text: #2e2e2e;
+    --accent: #e08e79;
+    --light: #faf3eb;
+    --max-width: 1100px;
+  }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: 'Segoe UI', Tahoma, sans-serif;
-  color: var(--text);
-  background: var(--bg);
-  line-height: 1.6;
-}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  html, body { overflow-x: hidden; } /* ✅ no horizontal scroll */
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+  }
 
-/* Container */
-.container {
-  width: min(90%, var(--max-width));
-  margin: 0 auto;
-}
+  /* Container */
+  .container {
+    width: min(90%, var(--max-width));
+    margin: 0 auto;
+    font-size: large;
+  }
 
-/* Header */
-.site-header {
-  background: var(--light);
-  padding: 15px 0;
-  border-bottom: 1px solid #ddd;
-  position: sticky;
-  top: 0;
-}
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--accent);
-}
-.nav a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: var(--text);
-}
-.nav a:hover {
-  color: var(--accent);
-}
+  /* Header */
+  .site-header {
+    background: var(--light);
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent);
+  }
 
-/* Hero */
-.hero {
-  padding: 60px 0;
-  background: linear-gradient(to right, #fffdf8, #f8eae2);
-}
-.hero-inner {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.hero-text {
-  text-align: center;
-}
-.hero-text h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-.lead {
-  color: #555;
-  margin-bottom: 20px;
-}
-.hero-image img {
-  max-width: 100%;
-  display: block;
-  margin: 0 auto;
-  border-radius: 12px;
-  border: 1px solid #ddd;
-}
-@media (min-width: 800px) {
-  .hero-inner { flex-direction: row; align-items: center; justify-content: space-between; }
-  .hero-text { text-align: left; max-width: 50%; }
-  .hero-image { max-width: 45%; }
-}
+  /* Nav (even spacing + aligned button) */
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: nowrap;
+  }
+  .nav a {
+    text-decoration: none;
+    color: var(--text);
+    transition: color 150ms ease-in-out;
+  }
+  .nav a:hover { color: var(--accent); }
 
-/* Buttons */
-.btn {
-  display: inline-block;
-  background: var(--accent);
-  color: white;
-  padding: 10px 18px;
-  border-radius: 6px;
-  text-decoration: none;
-}
-.btn:hover { background: #d47b64; }
-.btn-lg { font-size: 1.1rem; padding: 12px 22px; }
-.btn-sm { font-size: 0.9rem; padding: 8px 14px; }
+  /* Hero */
+  .hero {
+    padding: 60px 0;
+    background: linear-gradient(to right, #fffdf8, #f8eae2);
+  }
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .hero-text { text-align: center; }
+  .hero-text h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  .hero-text p {
+    color: #555;
+    margin-bottom: 25px;
+  }
+  .hero-image img {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+ clip-path: ellipse(75% 60% at 50% 40%);
+    border:  1px solid #181717;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  }
+  .hero-image img:hover {
+border:4px solid rgb(0, 0, 0);
 
-/* Sections */
-.section { padding: 60px 0; }
-.section-alt { background: var(--light); }
-.center { text-align: center; }
-.narrow { max-width: 600px; margin: 0 auto; }
+  }
+  @media (min-width: 800px) {
+    .hero-inner { flex-direction: row; align-items: center; justify-content: space-between; }
+    .hero-text { text-align: left; max-width: 50%; }
+    .hero-image { max-width: 45%; }
+  }
 
-/* Product grid */
-.product-grid {
-  display: grid;
-  gap: 20px;
-  margin-top: 30px;
-}
-.product-card {
-  text-align: center;
-  background: white;
-  border: 1px solid #eee;
-  border-radius: 10px;
-  padding: 20px;
-}
-.product-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 12px;
-}
-.product-card h3 { margin-bottom: 6px; color: var(--accent); }
-@media (min-width: 700px) {
-  .product-grid { grid-template-columns: repeat(3, 1fr); }
-}
+  /* Buttons (hover + transition 150ms) */
+  .btn {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 150ms ease-in-out;
+    white-space: nowrap;
+    will-change: transform, box-shadow, background-color, color;
+  }
+  .btn:hover {
+    background: #d47b64;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+  }
+  .btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.10);
+  }
+  .btn:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 3px rgba(255,255,255,0.9),
+      0 0 0 5px var(--accent);
+  }
+  .btn-lg { font-size: 1.1rem; padding: 12px 22px; }
+  .btn-sm { font-size: 0.9rem; padding: 8px 14px; }
 
-/* Gallery */
-.gallery {
-  display: grid;
-  gap: 20px;
-  margin-top: 30px;
-}
-.gallery img {
-  width: 100%;
-  border-radius: 10px;
-  display: block;
-  border: 1px solid #ddd;
-}
-@media (min-width: 700px) {
-  .gallery { grid-template-columns: repeat(3, 1fr); }
-}
+  /* Sections */
+  .section { padding: 45px 0; }
+  .section-alt { background: var(--light); }
+  .center { text-align: center; }
+  .narrow { max-width: 700px; margin: 0 auto; }
 
-/* Contact */
-.contact-list {
-  list-style: none;
-  margin-top: 20px;
-  line-height: 1.8;
-}
-.contact-list a { color: var(--accent); text-decoration: none; }
-.contact-list a:hover { text-decoration: underline; }
+  /* Product grid */
+  .product-grid {
+    display: grid;
+    gap: 20px;
+    margin-top: 30px;
+  }
+  .product-card {
+    text-align: center;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 20px;
+    transition: all 150ms ease-in-out;
+  }
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+    border-color: var(--accent);
+  }
+  .product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+  .product-card h3 { margin-bottom: 6px; color: var(--accent); }
+  @media (min-width: 700px) {
+    .product-grid { grid-template-columns: repeat(3, 1fr); }
+  }
 
-/* Footer */
-.site-footer {
-  background: var(--light);
-  padding: 15px 0;
-  text-align: center;
-  border-top: 1px solid #ddd;
-}
-</style>
+  /* Gallery */
+  .gallery {
+    display: grid;
+    gap: 20px;
+    margin-top: 30px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 600px) {
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 900px) {
+    .gallery { grid-template-columns: repeat(3, 1fr); }
+  }
+  .gallery-item {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    transition: all 150ms ease-in-out;
+  }
+  .gallery-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    border-color: var(--accent);
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+    transition: all 150ms ease-in-out;
+  }
+  .gallery-item:hover img { transform: scale(1.02); }
+
+  /* Founder Section */
+  .founder {
+    background: var(--light);
+    padding: 60px 0;
+  }
+  .founder-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+  .founder img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid black;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.20);
+  }
+  .founder h3 {
+    font-size: 1.3rem;
+    color: var(--accent);
+    margin-bottom: 5px;
+  }
+  .founder p {
+    max-width: 600px;
+    color: #555;
+    line-height: 1.7;
+  }
+
+  /* Contact */
+  .contact-list {
+    list-style: none;
+    margin-top: 20px;
+    line-height: 1.8;
+  }
+  .contact-list a { color: var(--accent); text-decoration: none; }
+  .contact-list a:hover { text-decoration: underline; }
+
+  /* Footer */
+  .site-footer {
+    background: var(--light);
+    padding: 15px 0;
+    text-align: center;
+    border-top: 1px solid #ddd;
+  }
+  .site-footer a {
+    margin-left: 4px;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .site-footer a:hover { text-decoration: underline; }
+  </style>
 </head>
+
 <body>
 
   <!-- HEADER -->
@@ -188,12 +285,11 @@ body {
     <div class="container hero-inner">
       <div class="hero-text">
         <h2>Inspiration. Design. Purpose.</h2>
-        <p class="lead">Paperbloom notebooks are made to motivate, uplift, and keep your story blooming — one page at a time.</p>
-        <!-- ✅ Added Amazon Button Here -->
+        <p class="lead">Turning blank pages into art, opportunities into growth, yourself into a superstar.</p>
         <a href="http://amazon.com/author/paperbloomnotes" target="_blank" class="btn btn-lg">Shop on Amazon</a>
       </div>
       <div class="hero-image">
-        <img src="c:\Users\LONA\OneDrive\Desktop\Amazon\Notebook 2-paperback- YOU CAN DO IT-7.5 x 9.25 110P\Notebook 2- Mockups 5\1.png" alt="Paperbloom notebook with motivational cover">
+        <img src="c:\Users\LONA\OneDrive\Desktop\Amazon\LOGO- PaperBloom\LOGO- PaperBloom THE RIGHT ONE.pdf.png" width=300px alt="Paperbloom motivational notebook cover">
       </div>
     </div>
   </section>
@@ -201,9 +297,15 @@ body {
   <!-- ABOUT -->
   <section id="about" class="section">
     <div class="container">
-      <h2 class="center">About Paperbloom</h2>
+      <h2 class="center"> <em>About Paperbloom</em></h2>
+      <br/>
       <p class="center narrow">
-        At Paperbloom, we create elegant motivational notebooks with **unique floral and quote-based covers** that inspire you to stay focused, dream big, and grow every day. Each design is crafted with attention to detail, blending aesthetics and purpose.
+       <em> Born from a love for <b>art</b> and <b>numbers</b>, Paperbloom brings creativity and mindfulness together on every page.
+        We design unique and inspiring notebooks that blend simplicity with beauty, helping you turn your thoughts into art and your ideas into action.
+        <br><br>
+        From beautifully crafted journals to Sudoku notebooks that train your mind and boost focus — everything we create is made to help you grow.
+        <br><br>
+        <strong>Your notes, your goals, your story — all in one place — <b>PAPERBLOOM</b> 🪷</em></strong> 
       </p>
     </div>
   </section>
@@ -214,25 +316,25 @@ body {
       <h2 class="center">Our Notebooks</h2>
       <div class="product-grid">
         <div class="product-card">
-          <img src="images/notebook-1.png" alt="Paperbloom - Believe & Bloom notebook">
-          <h3>Believe & Bloom</h3>
-          <p>Motivational quote on the cover, soft matte finish.</p>
+          <img src="c:\Users\LONA\OneDrive\Desktop\Amazon\Notebook 3-paperback-BEELieve- 7.5 x 9.25\Notebook 3-Mockup.png" alt="Paperbloom BEELieve motivational notebook">
+          <h3>BEELieve</h3>
+          <p>A motivational title on the cover and a soft matte finish — designed to inspire confidence with every touch.</p>
         </div>
         <div class="product-card">
-          <img src="images/notebook-2.png" alt="Paperbloom - Focus & Rise notebook">
-          <h3>Focus & Rise</h3>
-          <p>Elegant floral design with a clean, inspiring layout.</p>
+          <img src="c:\Users\LONA\OneDrive\Desktop\Amazon\Notebook 4-paperback-ALL ABOUT ME- 6x9 inches\ALL ABOUT ME-COVER.png" alt="Paperbloom All About Me floral notebook">
+          <h3>ALL ABOUT ME</h3>
+          <p>A gentle blue floral notebook with the uplifting title “All About Me”. Perfect for writing, planning, and self-reflection — because every page is all about you.</p>
         </div>
         <div class="product-card">
-          <img src="images/notebook-3.png" alt="Paperbloom - Your Story Starts Here notebook">
-          <h3>Your Story Starts Here</h3>
-          <p>A gentle reminder to keep moving forward, every day.</p>
+          <img src="c:\Users\LONA\OneDrive\Desktop\Amazon\Notebook 1-paperback -LEAF BY LEAF-7.5 x 9.25 110P\MOCKUP PERFECT.png" alt="Paperbloom Leaf by Leaf notebook">
+          <h3>LEAF BY LEAF</h3>
+          <p>Grow your ideas — leaf by leaf. Because every page is a small step toward something bigger.</p>
         </div>
       </div>
 
-      <!-- ✅ Added Amazon CTA under products -->
       <div class="center" style="margin-top: 30px;">
         <p>You can also find all Paperbloom notebooks on our <strong>Amazon Author Page</strong>.</p>
+        <br>
         <a href="http://amazon.com/author/paperbloomnotes" target="_blank" class="btn btn-lg">Visit Amazon Store</a>
       </div>
     </div>
@@ -243,10 +345,23 @@ body {
     <div class="container">
       <h2 class="center">Gallery</h2>
       <div class="gallery">
-        <img src="c:\Users\LONA\OneDrive\Desktop\Amazon\Notebook 1-paperback -LEAF BY LEAF-7.5 x 9.25 110P\Stay organized, stay inspired (1)\2.png" width="600px" height="235px" alt="LEAF BY LEAF Notebook">
-        <img src="c:\Users\LONA\OneDrive\Desktop\Amazon\O5Fjv3y4zVH.png" alt="ALL ABOUT ME Notebook">
-        <img src="c:\Users\LONA\OneDrive\Desktop\Amazon\Notebook 3-paperback-BEELieve- 7.5 x 9.25\Notebook 3-Mockup.png" alt="BEELieve Notebook">
+        <figure class="gallery-item"><img src="c:\Users\LONA\OneDrive\Desktop\Amazon\Notebook 7.1-paperback-MOON AND STAR -7.5 x 9.25 -110P\MOON AND STAR1.png" alt="Leaf by Leaf notebook flatlay"></figure>
+        <figure class="gallery-item"><img src="c:\Users\LONA\OneDrive\Desktop\Amazon\Notebook 7-MY JOURNEY-blue-paperback 6 x 9 in-150P\MY JOURNEY COVER-the right one.png" alt="All About Me floral notebook cover"></figure>
+        <figure class="gallery-item"><img src="c:\Users\LONA\OneDrive\Desktop\Amazon\Notebook 6-paperback-MOVE FORWARD-7.5 x 9.25\MOVE FORWARD-COVER.png" alt="BEE-lieve sunflower notebook"></figure>
+        <figure class="gallery-item"><img src="c:\Users\LONA\OneDrive\Desktop\Amazon\Notebook 4-paperback-ALL ABOUT ME- 6x9 inches\ALL ABOUT ME.png" alt="Leaf by Leaf notebook on desk"></figure>
+        <figure class="gallery-item"><img src="c:\Users\LONA\OneDrive\Desktop\Amazon\Notebook 5-paperback-MY JOURNEY-bojo design black- 6 x 9 inches\MY JOURNEY BROWN.png" alt="All About Me notebook open pages"></figure>
+        <figure class="gallery-item"><img src="c:\Users\LONA\OneDrive\Desktop\Amazon\Sudoku\SUDOKU COVER -THE RIGHT ONE.png" alt="BEE-lieve notebook with coffee cup"></figure>
       </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER SECTION -->
+  <section class="founder">
+    <div class="container founder-inner">
+      <img src="c:\Users\LONA\OneDrive\Pictures\WhatsApp Bild 2025-10-24 um 13.51.26_eff53b86.jpg" alt="Founder of Paperbloom">
+      <h3>Bleona Shala</h3>
+      <p> <strong>Founder & Creative Director of Paperbloom </strong>🪷<br>
+      Driven by a love for art, design, and growth, I created Paperbloom to inspire others to believe in their ideas and turn them into something beautiful.</p>
     </div>
   </section>
 
@@ -256,9 +371,9 @@ body {
       <h2>Get in Touch</h2>
       <p>Interested in Paperbloom notebooks for personal use, gifts, or wholesale? Reach out to us.</p>
       <ul class="contact-list">
-        <li>✉️ hello@paperbloom.com </li>
-        <li>📸 Follow us on <a target="_blank" href ="https://www.instagram.com/paperbloom_notebooks/">Instagram</a></li>
-        <li>X   Follow us on <a target= "_blank" href="https://www.tiktok.com/@paperbloom_notebooks?lang=en">TikTok</a> </li>
+        <li>✉️ paperbloom.at@gmail.com</li>
+        <li>📸 Follow us on <a target="_blank" href="https://www.instagram.com/paperbloom_notebooks/">Instagram</a></li>
+        <li>🎥 Follow us on <a target="_blank" href="https://www.tiktok.com/@paperbloom_notebooks?lang=en">TikTok</a></li>
       </ul>
     </div>
   </section>
@@ -266,9 +381,10 @@ body {
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© 2025 Paperbloom. All rights reserved. | <a href="http://amazon.com/author/paperbloomnotes" target="_blank">Shop on Amazon</a></p>
+      <p>© 2025 Paperbloom. All rights reserved. | 
+      <a href="http://amazon.com/author/paperbloomnotes" target="_blank">Shop on Amazon</a></p>
     </div>
   </footer>
 
 </body>
-</html>
+</html> 
